@@ -77,7 +77,7 @@ app.use(function(err, req, res, next) {
 
 // API ENDPOINTS
 
-const port = 3000
+const port =process.env.PRT || 3000;
 app.listen(port, () => {
-    console.log(`Running on http://localhost:${port}`)
+    console.log(`Running on port ${port}`)
 })
