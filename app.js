@@ -9,7 +9,6 @@ var logger = require('morgan');
 var expressValidator = require('express-validator');
 var session=require('express-session');
 var indexRouter = require('./routes/indexrouters');
-//var usersRouter = require('./routes/userrouters');
 var bookRouter = require('./routes/bookroutes');
 var userRouter = require('./routes/userrouters');
 adminRouter=require('./routes/adminroutes');
@@ -40,18 +39,18 @@ app.use(function(req, res, next) {
     next(err);
 });
 //session
-app.use(session({
-    name:"LibraryManagement",
-    secret:process.env.SESSION_SECRET_KEY,
-    resave:false,
-    saveUninitialized:false,
-    cookie:{
-        maxAge:1000*60*30,
-        httpOnly:true,
-        sameSite:"strict",
-        secure:false
-    }
-}));
+// app.use(session({
+//     name:"LibraryManagement",
+//     secret:process.env.SESSION_SECRET_KEY,
+//     resave:false,
+//     saveUninitialized:false,
+//     cookie:{
+//         maxAge:1000*60*30,
+//         httpOnly:true,
+//         sameSite:"strict",
+//         secure:false
+//     }
+// }));
 /// error handlers
 
 // development error handler
@@ -75,9 +74,4 @@ app.use(function(err, req, res, next) {
     });
 });
 
-// API ENDPOINTS
-
-const port =process.env.PRT || 3000;
-app.listen(port, () => {
-    console.log(`Running on port ${port}`)
-})
+module.exports = app;
