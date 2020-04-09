@@ -2,7 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const {authenticate}=require('../middleware/authenticate');
 const router = express.Router();
-var userController = require('../controllers/userController');
+var userController = require("../controllers/usercontroller");
 
 router.post('/',  authenticate, userController.createUser)
 router.delete('/:id',authenticate,  userController.deleteUser)
